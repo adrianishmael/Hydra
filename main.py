@@ -10,14 +10,19 @@ height = app.primaryScreen().size().height()
 windows = []
 
 
-class Hydra(QtWidgets.QWidget):
+class Head(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        self.text = QtWidgets.QLabel("Cut off one head . . .")
-
         self.layout = QtWidgets.QVBoxLayout(self)
+        self.text = QtWidgets.QLabel("Cut off one head . . .")
+        self.text.setStyleSheet("color: white;")
         self.layout.addWidget(self.text)
+        self.setWindowTitle("Hydra")
+        self.setStyleSheet("background-color: black;")
+        self.setFixedSize(200, 50)
+        self.move(random.randint(0, width), random.randint(0, height))
+        self.show()
 
     def closeEvent(self, _e: QCloseEvent):
         create_window()
@@ -25,9 +30,7 @@ class Hydra(QtWidgets.QWidget):
 
 
 def create_window():
-    window = Hydra()
-    window.move(random.randint(0, width), random.randint(0, height))
-    window.show()
+    window = Head()
     windows.append(window)
 
 
