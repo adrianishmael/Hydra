@@ -8,6 +8,7 @@ app = QtWidgets.QApplication(sys.argv)
 width = app.primaryScreen().size().width()
 height = app.primaryScreen().size().height()
 windows = []    # list to put windows in to get around scoping
+score = 0
 
 
 class Head(QtWidgets.QWidget):
@@ -25,9 +26,12 @@ class Head(QtWidgets.QWidget):
         self.show()
 
     def closeEvent(self, _e: QCloseEvent):
+        global score
+        score += 1
+
         message = QtWidgets.QMessageBox()
         message.setWindowTitle("Hydra!")
-        message.setText("Two more shall take its place!")
+        message.setText("Two more shall take its place!\nScore: " + str(score))
         message.setStyleSheet("background-color: red;")
         message.exec()
 
