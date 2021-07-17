@@ -27,6 +27,11 @@ class Head(QtWidgets.QWidget):
         self.show()
 
     def closeEvent(self, _e: QCloseEvent):
+        message = QtWidgets.QMessageBox()
+        message.setText("Two more shall take its place!")
+        message.setStyleSheet("background-color: red;")
+        message.exec()
+
         create_window()
         create_window()
         windows.remove(self)
