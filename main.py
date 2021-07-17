@@ -18,15 +18,18 @@ class Head(QtWidgets.QWidget):
         self.text = QtWidgets.QLabel("Cut off one head . . .")
         self.text.setStyleSheet("color: white;")
         self.layout.addWidget(self.text)
+
         self.setWindowTitle("Hydra")
         self.setStyleSheet("background-color: black;")
         self.setFixedSize(200, 50)
         self.move(random.randint(0, width), random.randint(0, height))
+
         self.show()
 
     def closeEvent(self, _e: QCloseEvent):
         create_window()
         create_window()
+        windows.remove(self)
 
 
 def create_window():
